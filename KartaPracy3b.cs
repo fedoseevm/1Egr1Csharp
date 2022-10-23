@@ -49,6 +49,7 @@ int suma = 0;
 for (int i = 0; i <= (k * 2); i += 2)
     suma += i;
 Console.WriteLine("Suma: " + suma);
+Console.WriteLine();
 
 // zad 7
 Console.WriteLine("Zadanie 7");
@@ -58,6 +59,7 @@ int suma = 0;
 for (int i = 11; i <= (m * 2 + 10); i += 2)
     suma += i;
 Console.WriteLine("Suma: " + suma);
+Console.WriteLine();
 
 // zad 8
 Console.WriteLine("Zadanie 8");
@@ -73,6 +75,7 @@ for (int i = 1; i <= l; i++)
     wartosc += kap;
 }
 Console.WriteLine("Wartosc: " + Math.Round(wartosc, 2));
+Console.WriteLine();
 
 // zad 9
 Console.WriteLine("Zadanie 9");
@@ -84,6 +87,7 @@ for (int i = 0; i <= n; i++)
     temp = i * 100 + 21;
 suma += temp;
 Console.WriteLine("Suma: " + suma);
+Console.WriteLine();
 
 //  zad 10
 Console.WriteLine("Zadanie 10");
