@@ -52,22 +52,6 @@ for (int i = 0; i < n; i++)
 Console.WriteLine("Suma liczb: " + suma);*/
 
 // tablica z n liczb wpisanych przez usera, wypisz najwiekszwe liczby
-/*int n = int.Parse(Console.ReadLine());
-int max = int.MinValue;
-int k = 0;
-int[] A = new int[n];
-for (int i = 0; i < n; i++)
-{
-    A[i] = int.Parse(Console.ReadLine());
-    if (A[i] > max)
-        max = A[i];
-}
-for (int i = 0; i < n; i++)
-    if (A[i] == max)
-        k++;
-Console.WriteLine("Max Value: " + max + " ");
-Console.Write(k);*/
-
 int n = int.Parse(Console.ReadLine());
 int max = int.MinValue;
 int k = 1;
@@ -82,3 +66,15 @@ for (int i = 0; i < n; i++)
 }
 Console.WriteLine("Max Value: " + max + " ");
 Console.Write("Max Value Count: " + k);
+
+// tablica z n liczb wpisanych przez usera, wypisz sume liczb o parzystych indeksach
+int n = int.Parse(Console.ReadLine());
+int sum = 0;
+int[] B = new int[n];
+for (int i = 0; i < n; i++)
+{
+    B[i] = int.Parse(Console.ReadLine());
+    if (i % 2 == 0)
+        sum += B[i];
+}
+Console.WriteLine(sum);
