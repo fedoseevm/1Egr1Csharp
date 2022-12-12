@@ -21,47 +21,67 @@ Console.WriteLine(suma);
 */
 
 // zad 3
-/*int podstawa = 0;
+/*int wielokr = 0;
 int k = 0;
-int first = 0;
-for (int i = 99; i > 9; i++)
+int pierwsza_podzielna = 0;
+for (int i = 99; i > 9; i--)
 {
     if (i % 7 == 0)
     {
-        podstawa = i;
+        wielokr = i;
         break;
     }
 }
-Console.WriteLine(podstawa);
-for (int i = 1000; i < podstawa; i++)
-    if (i % podstawa == 0)
+Console.Write("Wielokrotnosc: " + wielokr);
+for (int i = 1000; i < 1000 + wielokr; i++)
+    if (i % wielokr == 0)
     {
-        first = i;
+        pierwsza_podzielna = i;
         break;
     }
-for (int i = first; i <= 9999; i += podstawa)
+for (int i = pierwsza_podzielna; i <= 9999; i += wielokr)
 {
     k++;
 }
-Console.WriteLine(k);
+Console.WriteLine();
+Console.Write("Ilosc liczb spelniajacych warunki: " + k);
 */
-
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // zad 4
 /*int ilosc = 0;
-int cd = 0;
-int cj = 0;
+int cd;
+int cj;
 for (int i = 10; i < 100; i++)
 {
     cd = i / 10;
     cj = i % 10;
     if (cd >= 2 * cj)
     {
-        ilosc += 1;
+        ilosc++;
     }
 }
 Console.WriteLine(ilosc);
+*/
+
+// zad 5
+/*int ilosc = 0;
+int suma = 0;
+int cs;
+int cd;
+int cj;
+for (int i = 100; i < 1000; i++)
+{
+    cs = i / 100;
+    cd = i % 100 / 10;
+    cj = i % 10;
+    if (cs > cd + cj)
+    {
+        suma += i;
+        ilosc++;
+    }
+}
+Console.WriteLine("Ilosc: " + ilosc);
+Console.WriteLine("Suma: " + suma);
 */
 
 // zad 8
@@ -91,6 +111,7 @@ for (int i = 1; i <= n; i++)
 }
 Console.WriteLine(suma);
 */
+
 // zad 11
 /*int n = int.Parse(Console.ReadLine());
 double suma = 0;
@@ -100,5 +121,3 @@ for (int i = 1; i <= n; i++)
 }
 Console.WriteLine(suma);
 */
-
-// zad 16
