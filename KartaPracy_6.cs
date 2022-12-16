@@ -84,6 +84,36 @@ Console.WriteLine("Ilosc: " + ilosc);
 Console.WriteLine("Suma: " + suma);
 */
 
+// zad 6
+/*int n = int.Parse(Console.ReadLine());
+int suma = 0;
+int i = 1;
+while (n > 0)
+{
+    if (i % 19 == 0)
+    {
+        suma += i;
+        n--;
+    }
+    i++;
+}
+Console.WriteLine(suma);*/
+
+// zad 7
+/*int n = int.Parse(Console.ReadLine());
+int suma = 0;
+int i = 999;
+while (n > 0)
+{
+    if (i % 37 == 0)
+    {
+        suma += i;
+        n--;
+    }
+    i--;
+}
+Console.WriteLine(suma);*/
+
 // zad 8
 /*int n = int.Parse(Console.ReadLine());
 int suma = 0;
@@ -94,6 +124,12 @@ for (int i = 1; i <= n; i++)
 Console.WriteLine(suma);
 */
 
+// zad 9
+/*int n = int.Parse(Console.ReadLine());
+double iloczyn = 1;
+for (int i = 0; i < n; i++)
+    iloczyn *= (Math.Pow(2, i) * Math.Pow(-1, i));
+Console.WriteLine($"Iloczyn: {iloczyn}");*/
 
 // zad 10
 /*
@@ -121,3 +157,52 @@ for (int i = 1; i <= n; i++)
 }
 Console.WriteLine(suma);
 */
+
+// zad 12
+/*int n = int.Parse(Console.ReadLine());
+int licznik = 0;
+double mianownik = 0;
+for (int i = 1; i <= n; i++)
+{
+    licznik += i * 2 - 1;
+    mianownik += Math.Pow(i, 2);
+}
+Console.WriteLine($"{licznik}/{mianownik} = {Math.Round(licznik/mianownik, 3)}");*/
+
+// zad 13
+/*int n = int.Parse(Console.ReadLine());
+double suma = 0;
+for (int i = 1; i <= n; i++)
+{
+    suma += i * 2 / (Math.Pow(i, 3) + 2);
+}
+Console.WriteLine($"Suma: {Math.Round(suma, 3)}");*/
+
+// zad 14
+//    -_-  .....OK
+
+// zad 15
+/*int n = int.Parse(Console.ReadLine());
+double iloczyn = 1;
+for (int i = 1; i <= n; i++)
+{
+    iloczyn *= (2 + i) / (Math.Pow(2, i) - 1);
+}
+Console.WriteLine($"Iloczyn: {Math.Round(iloczyn, 3)}");*/
+
+// zad 16
+/*int n = int.Parse(Console.ReadLine());
+double iloczyn = 1;
+int licznik;
+int a = 1;
+int b = 2;
+int temp;
+for (int i = 0; i < n; i++)
+{
+    licznik = a;
+    iloczyn *= licznik / Math.Pow(2, i);
+    temp = b;
+    b = temp + a;
+    a = temp;
+}
+Console.WriteLine($"Iloczyn: {Math.Round(iloczyn, 3)}");*/
