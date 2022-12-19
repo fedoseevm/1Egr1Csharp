@@ -236,7 +236,7 @@ if (p == n)
     Console.WriteLine("Liczba parzystych i nieprazystycj jest rowna");*/
 
 // zad 9
-int k = 0;
+/* int k = 0;
 for (int i = 0; i < T.Length; i++)
 {
     T[i] = r.Next(1, 20);
@@ -254,4 +254,22 @@ for (int i = 0; i < T.Length; i++)
     }
 }
 Console.WriteLine();
-Console.WriteLine(k);
+Console.WriteLine(k); */
+
+// Zadanie 19.12.2022
+Random r = new Random();
+int[] T = new int[30];
+/*T[0] = r.Next(0, 10);*/
+for (int i = 0; i < T.Length; i++)
+{
+    T[i] = r.Next(0, 10);
+    Console.Write(T[i] + " ");
+}
+Console.WriteLine("\n\n");
+for (int i = 0; i < T.Length - 1; i++)
+{
+    if (T[i] == T[i + 1])
+    {
+        Console.WriteLine($"Rowne liczby to {T[i]} na pozycjach {i}, {i+1}");
+    }
+}
