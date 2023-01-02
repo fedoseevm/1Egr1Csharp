@@ -117,8 +117,8 @@ for (int i = 0; i < T.Length; i++)
 //int maxval = int.MinValue;
 using System.ComponentModel.DataAnnotations;
 
-Random r = new Random();
-int[] T = new int[20];
+/*Random r = new Random();
+int[] T = new int[20];*/
 /*for (int i = 0; i < T.Length; i++)
 {
     T[i] = r.Next(1, 20);
@@ -257,9 +257,9 @@ Console.WriteLine();
 Console.WriteLine(k); */
 
 // Zadanie 19.12.2022
-Random r = new Random();
+/*Random r = new Random();
 int[] T = new int[30];
-/*T[0] = r.Next(0, 10);*/
+T[0] = r.Next(0, 10);
 for (int i = 0; i < T.Length; i++)
 {
     T[i] = r.Next(0, 10);
@@ -272,4 +272,40 @@ for (int i = 0; i < T.Length - 1; i++)
     {
         Console.WriteLine($"Rowne liczby to {T[i]} na pozycjach {i}, {i+1}");
     }
+}*/
+
+
+
+
+
+
+
+
+
+// example
+/*for (int i = 1; i < 11; i++)
+{
+    for (int j = 1; j < 11; j++)
+    {
+        Console.WriteLine(i * j + "\t");
+    }
+    Console.WriteLine();
+}*/
+
+// Tablice dwuelementowe
+int[,] M = new int[5, 5];
+M[0, 0] = 6;
+M[1, 1] = 6;
+M[2, 2] = 6;
+M[3, 3] = 6;
+M[4, 4] = 6;
+for (int i = 0; i < 5; i++)
+{
+    for (int j = 0; j < 5; j++)
+    {
+        if (i == j)
+            M[i, j] = 6;
+        Console.Write(M[i,j] + "\t");
+    }
+    Console.WriteLine();
 }
