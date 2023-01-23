@@ -205,15 +205,15 @@ Console.WriteLine();
 Console.Write(suma);*/
 
 // zad 7
-/*int suma = 0;
-for (int i = 0; i < T.Length; i++)
-{
-    T[i] = r.Next(1, 20);
-    Console.Write(T[i] + " ");
-    suma += T[i];
-}
-Console.WriteLine();
-Console.WriteLine("Srednia arytmetyczna: " + suma / T.Length);*/
+//int suma = 0;
+//for (int i = 0; i < T.Length; i++)
+//{
+//    T[i] = r.Next(1, 20);
+//    Console.Write(T[i] + " ");
+//    suma += T[i];
+//}
+//Console.WriteLine();
+//Console.WriteLine("Srednia arytmetyczna: " +Math.Round(suma / 20d, 1));
 
 // zad 8
 /*int p = 0;
