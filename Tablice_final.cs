@@ -96,9 +96,10 @@ Console.WriteLine("\n");
 
 
 
+
 // List i ArrayList
 using System.Collections;
-
+/*
 ArrayList AL = new ArrayList();
 AL.Add(5);
 AL.Add(8);
@@ -110,3 +111,39 @@ Console.WriteLine(AL.Count);
 AL.Remove(5);       // usuwa wartosc
 AL.RemoveAt(0);     // usuwa index
 Console.WriteLine(AL.Count);
+*/
+
+// petla po ArrayList - mizna stosowac for i foreach
+/*
+for (int i = 0; i < AL.Count; i++)
+{
+    Console.Write(AL[i] + " ");
+}
+
+foreach (var item in AL)
+{
+    Console.Write(item + " ");
+}
+Console.WriteLine();
+*/
+
+
+
+
+
+// Jako ratunkowe moze byc...
+//enuma definiujemy w namespace a uruchamiany w jakiejs klasie z metoda Main()
+namespace Enumy     // nazwa dowolna
+{
+
+    enum Dni { Pon, Wt, Sr, Czw};
+    class Alex      // nazwa dowolna
+    {
+        public static void Main()
+        {
+            Console.WriteLine(Dni.Pon);
+        }
+    }
+
+
+}
