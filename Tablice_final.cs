@@ -10,6 +10,7 @@ T[2] = 6;
 // mozna polaczyc deklaracje i definicje
 int[] S = new int[] { 5, 6, 12, 0, 9, 3 };
 
+
 // przejsie po tablicy - 2 podstawowe warianty przejsc
 for (int i = 0; i < S.Length; i++)
 {
@@ -34,6 +35,11 @@ for (int i = 0; i < L.Length; i++)
     L[i] = r.Next(1, 21);
     Console.Write(L[i] + " ");
 }*/
+
+
+
+
+
 
 
 /*
@@ -85,6 +91,10 @@ for (int i = 0; i < n; i++)
 }
 Console.WriteLine("\n");
 */
+
+
+
+
 
 // List i ArrayList
 using System.Collections;
