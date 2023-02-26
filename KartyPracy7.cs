@@ -138,9 +138,8 @@ for (int i = 10; i < 100; i++)
 Console.WriteLine("\n");
 
 // 14 NIE DZIALA
-/*
 int a = 0;
-for (int i = 0; i < T.Length; i++)
+for (int i = 10; i < 100; i++)
 {
     int v = 0;
     for (int j = 0; j < T.Length; j++)
@@ -159,7 +158,6 @@ Console.WriteLine($"Należałoby usunąć {a} elementow z tablicy, aby zostały 
 Console.WriteLine("\n");
 Console.WriteLine("\n");
 Console.WriteLine("\n");
-*/
 
 // 15 NIE DZIALA
 /*
