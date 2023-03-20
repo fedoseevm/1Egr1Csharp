@@ -56,4 +56,33 @@ foreach (string item in Pierwsze)
 wynik2.Close();
 
 // 4.3
-//int waga()
+
+int suma_cyfr(int n)
+{
+    int suma = 0;
+    while (n > 0)
+    {
+        suma += n % 10;
+        n /= 10;
+    }
+    return suma;
+}
+int waga(int n)
+{
+    while (n >= 10)
+    {
+        n = suma_cyfr(n);
+    }
+    return n;
+}
+
+wynik3.WriteLine("Zadanie 4.3\n");
+foreach (string pierwsza in Pierwsze)
+{
+    if (waga(int.Parse(pierwsza)) == 1)
+    {
+        wynik3.WriteLine(pierwsza);
+    }
+}
+
+wynik3.Close();
