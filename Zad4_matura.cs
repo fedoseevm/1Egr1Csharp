@@ -19,7 +19,7 @@ StreamReader ab = new StreamReader("C:\\Users\\uczen\\MF 1E\\Csharp\\C# Zadanie\
 ArrayList Pierwsze = new ArrayList();
 while (!ab.EndOfStream)
 {
-    Pierwsze.Add(int.Parse(ab.ReadLine()));
+    Pierwsze.Add(Convert.ToString(ab.ReadLine()));
 }
 
 
