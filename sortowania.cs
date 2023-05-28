@@ -1,155 +1,248 @@
-// SORTOWANIE
-Random r = new Random();
-int n = 8;
-int[] SB = new int[n];
-for (int i = 0; i < SB.Length; i++)
+Random R = new Random();
+int n = 20;
+int[] T = new int[n];
+for (int i = 0; i < n; i++)
 {
-    SB[i] = r.Next(0, 100);
-    Console.Write(SB[i] + " ");
-}
-int temp;
-
-// Bąbelkowe
-/*
-for (int i = n - 1; i >= 0; i--)
-{
-    for (int j = 0; j < i; j++)
-    {
-        if (SB[j + 1] < SB[j])
-        {
-            temp = SB[j];
-            SB[j] = SB[j + 1];
-            SB[j + 1] = temp;
-        }
-    }
+    T[i] = R.Next(10, 100);
+    Console.Write(T[i] + " ");
 }
 Console.WriteLine("\n");
-foreach (int item in SB)
-    Console.Write(item + " ");
-*/
+Console.WriteLine("\n");
 
-// PONIZEJ BEDZIE INNA WERSJA
-/*
-List<int> przejscie_sort(List<int> list)
+
+// 1. Bąbelkowe
+
+int[] sort_bubble(int[] T)
 {
     int temp;
-    for (int i = 0; i < list.Count; i++)
-    {
-        if (list[i + 1] < list[i])
+    for (int i = n - 1; i >= 0; i--)
+        for (int j = 0; j < i; j++)
         {
-            temp = list[i];
-            list[i] = list[i + 1];
-            list[i + 1] = temp;
+            if (T[j + 1] < T[j])
+            {
+                temp = T[j];
+                T[j] = T[j + 1];
+                T[j + 1] = temp;
+            }
         }
-
-    }
+    return T;
 }
-*/
+sort_bubble(T);
 
-// insertion
-int j;
-for (int i = 1; i < n; i++)
+
+// 2. Przez wybor (selection sort)
+// wybieramy najmniejszy i wstawiamy go na poczatek
+
+int[] sort_selection_start(int[] T)
 {
-    temp = SB[i];
-    j = i - 1;
-    while (j >= 0 && SB[j] > temp)
+    int k;
+    int temp;
+    for (int i = 0; i < n; i++)
     {
-        SB[j + 1] = SB[j];
-        j--;
+        k = i;
+        for (int j = i + 1; j < n; j++)
+            if (T[j] < T[k])
+                k = j;
+        temp = T[i];
+        T[i] = T[k];
+        T[k] = temp;
     }
-    SB[j] = temp;
+    return T;
+}
+sort_selection_start(T);
 
-    //for (int j = i - 1; j >= 0; j--)
-    //{
-    //    if (SB[j] > temp)
-    //    {
 
-    //    }
-    //}
+// wybieramy najmniejszy i wstawiamy go na koniec
+
+int[] sort_selection_end(int[] T)
+{
+    int k;
+    int temp;
+    for (int i = n - 1; i > 0; i--)
+    {
+        k = i;
+        for (int j = 0; j < i; j++)
+            if (T[j] < T[k])
+                k = j;
+        temp = T[k];
+        T[k] = T[i];
+        T[i] = temp;
+    }
+    return T;
+}
+sort_selection_end(T);
+
+
+// 3. Przez wstawianie (insertion sort)
+
+int[] insert_sort(int[] T)
+{
+    int j, temp;
+    for (int i = 1; i < n; i++)
+    {
+        temp = T[i];
+        j = i - 1;
+        while (j >= 0 && temp < T[j])
+        {
+            T[j + 1] = T[j];
+            j--;
+        }
+        T[j + 1] = temp;
+    }
+    return T;
+}
+insert_sort(T);
+
+
+// 4. Przez zliczanie (counting sort)
+
+int[] count_sort(int[] T)
+{
+    int[] L = new int[100];
+    for (int i = 0; i < n; i++)
+        L[T[i]]++;
+
+    for (int i = 0; i < L.Length; i++)
+        Console.Write(L[i] + " ");
+    Console.WriteLine();
+
+    int j = 0;
+    for (int i = 0; i < L.Length; i++)
+    {
+        if (L[i] > 0)
+        {
+            for (int k = 0; k < L[i]; k++)
+            {
+                T[j] = i;
+                j++;
+            }
+        }
+    }
+    return T;
+}
+count_sort(T);
+
+
+// 5. Kubełkowe
+
+// pominięte - na później
+
+// Dziel i zwyciężaj 
+
+
+// 6. Przez scalanie (merge sort)
+
+void merging(int left, int right)
+{
+    int[] pom = new int[n];
+    for (int a = 0; a < n; a++)
+        pom[a] = T[a];
+    int i, i_left, i_right;
+    int center = (left + right) / 2;
+    i = left;   // indeks tabeli
+    i_left = left;
+    i_right = center + 1;
+
+    while (i_left <= center && i_right <= right)
+    {
+        if (pom[i_left] < pom[i_right])
+        {
+            T[i] = pom[i_left];
+            i_left++;
+        }
+        else
+        {
+            T[i] = pom[i_right];
+            i_right++;
+        }
+        i++;
+    }
+    if (i_left > center)
+        while (i_right <= right)
+        {
+            T[i] = pom[i_right];
+            i_right++;
+            i++;
+        }
+    else
+        while (i_left <= center)
+        {
+            T[i] = pom[i_left];
+            i_left++;
+            i++;
+        }
 }
 
+void sort(int left, int right)
+{
+    int center = (left + right) / 2;
+    if (left < center)
+    {
+        sort(left, center);
+    }
+    if (center + 1 < right)
+    {
+        sort(center + 1, right);
+    }
+    merging(left, right);
+}
+sort(0, n - 1);
 
-// bucket
 
+// 7. Quicksort Hoare
 
-
-
-
-// QuickSort Hoare
-List<int> quicksort_hoare(List<int> T, int left, int right)
+void sort_hoare(int left, int right)
 {
     int i = left;
     int j = right;
+    int temp;
     int pivot = T[(left + right) / 2];
+
     while (i <= j)
     {
-        while (T[i] < pivot)
-            i++;
-        while (T[j] > pivot)
-            j--;
+        while (T[i] < pivot) i++;
+        while (T[j] > pivot) j--;
         if (i <= j)
         {
-            int temp = T[i];
+            temp = T[i];
             T[i] = T[j];
             T[j] = temp;
             i++;
             j--;
         }
     }
-    if (left < j)
-        T = quicksort_hoare(T, left, j);
-    if (right > i)
-        T = quicksort_hoare(T, i, right);
-    return T;
+    if (left < j) sort_hoare(left, j);
+    if (right > i) sort_hoare(i, right);
 }
+sort_hoare(0, n - 1);
 
-Random r = new Random();
-List<int> T = new List<int>();
-for (int i = 0; i < 10; i++)
+
+// 8. Quicksort Lomuto
+void sort_lomuto(int left, int right)
 {
-    T.Add(r.Next(0,10));
-    Console.Write(T[i] + " ");
-}
-Console.WriteLine();
-quicksort_hoare(T, 0, T.Count - 1);
-for (int i = 0; i < 10; i++)
-    Console.Write(T[i] + " ");
-Console.WriteLine("\n");
-Console.ReadKey();
-
-
-
-// QuickSort Lomuto
-List<int> quicksort_lomuto(List<int> L, int left, int right)
-{
-    int pivot = L[right];
+    int pivot = T[right];
     int i = left;
+    int temp;
     for (int k = left; k < right; k++)
-        if (L[k] <= pivot)
+    {
+        if (T[k] <= pivot)
         {
-            int temp = L[k];
-            L[k] = L[i];
-            L[i] = temp;
+            temp = T[i];
+            T[i] = T[k];
+            T[k] = temp;
             i++;
         }
-    int temp1 = L[i];
-    L[i] = L[right];
-    L[right] = temp1;
-    if (left < i - 1)
-        T = quicksort_lomuto(L, left, i - 1);
-    if (right > i + 1)
-        T = quicksort_lomuto(L, i + 1, right);
-    return T;
+    }
+    temp = T[i];
+    T[i] = T[right];
+    T[right] = temp;
+
+    if (left < i - 1) sort_lomuto(left, i - 1);
+    if (right > i + 1) sort_lomuto(i + 1, right);
 }
+sort_lomuto(0, n - 1);
 
 
-List<int> L = new List<int>();
-for (int i = 0; i < 10; i++)
-{
-    L.Add(r.Next(0, 10));
-    Console.Write(L[i] + " ");
-}
-Console.WriteLine();
-quicksort_hoare(L, 0, L.Count - 1);
-for (int i = 0; i < 10; i++)
-    Console.Write(L[i] + " ");
+// Wyswietlenie posortowanej tablicy
+for (int i = 0; i < n; i++)
+    Console.Write(T[i] + " ");
