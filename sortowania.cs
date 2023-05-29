@@ -242,6 +242,33 @@ void sort_lomuto(int left, int right)
 }
 sort_lomuto(0, n - 1);
 
+// 9. Sortowanie grzebieniowe
+void sort_grzebien(int[] T)
+{
+    int temp;
+    int gap = n;
+    bool swapped = true;
+    while (gap > 1 || swapped == true)
+    {
+        gap *= 10 / 13;
+        if (gap == 0)
+            gap = 1;
+        swapped = false;
+        for (int i = 0; i < n - gap; i++)
+        {
+            if (T[i] > T[i + gap])
+            {
+                temp = T[i];
+                T[i] = T[i + gap];
+                T[i + gap] = temp;
+                swapped = true;
+            }
+        }
+    }
+    
+}
+sort_grzebien(T);
+
 
 // Wyswietlenie posortowanej tablicy
 for (int i = 0; i < n; i++)
