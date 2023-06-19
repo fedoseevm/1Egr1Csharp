@@ -1,3 +1,6 @@
+//Przykład:
+//Cyfrowym dopełnieniem liczby 2021 jest liczba 7978
+
 // Zad 1.1
 int maxik = 0;
 int minik = 10000;
